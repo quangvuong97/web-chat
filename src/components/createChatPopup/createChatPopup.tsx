@@ -104,7 +104,7 @@ function CreateChatPopup({
           ? groupName
           : friends.find((f) => f.userId === selectedFriends[0])?.username ||
             selectedFriends[0],
-        type: isGroupChat ? "1" : "2",
+        type: isGroupChat ? "group" : "personal",
       });
       setError("");
     } catch (error: any) {
