@@ -44,7 +44,7 @@ function CreateChatPopup({
   const fetchFriends = async (pageNum: number, searchKeyword: string = "") => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/v1/users/friends",
+        "http://ec2-13-239-36-171.ap-southeast-2.compute.amazonaws.com:3000/v1/users/friends",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -82,7 +82,7 @@ function CreateChatPopup({
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/v1/group-chats",
+        "http://ec2-13-239-36-171.ap-southeast-2.compute.amazonaws.com:3000/v1/group-chats",
         {
           name: isGroupChat
             ? groupName

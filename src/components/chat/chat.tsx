@@ -49,7 +49,7 @@ function ChatScreen({
   const fetchGroupChats = async (pageNum: number) => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/v1/group-chats/me",
+        "http://ec2-13-239-36-171.ap-southeast-2.compute.amazonaws.com:3000/v1/group-chats/me",
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -82,7 +82,7 @@ function ChatScreen({
   const fetchMessages = async (groupId: string) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/v1/group-chats/${groupId}/messages`,
+        `http://ec2-13-239-36-171.ap-southeast-2.compute.amazonaws.com:3000/v1/group-chats/${groupId}/messages`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -101,7 +101,7 @@ function ChatScreen({
     if (newMessage.trim() && selectedGroupChat) {
       try {
         await axios.post(
-          `http://localhost:3000/v1/group-chats/${selectedGroupChat.id}/messages`,
+          `http://ec2-13-239-36-171.ap-southeast-2.compute.amazonaws.com:3000/v1/group-chats/${selectedGroupChat.id}/messages`,
           { content: newMessage, socketId: socket?.id },
           {
             headers: {

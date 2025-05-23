@@ -27,14 +27,14 @@ function AuthScreen({ onAuth, generateAvatar }: AuthScreenProps) {
 
     try {
       const url = isLogin
-        ? "http://localhost:3000/v1/auth/login"
-        : "http://localhost:3000/v1/auth/register";
+        ? "http://ec2-13-239-36-171.ap-southeast-2.compute.amazonaws.com:3000/v1/auth/login"
+        : "http://ec2-13-239-36-171.ap-southeast-2.compute.amazonaws.com:3000/v1/auth/register";
       const response = await axios.post(url, { username, password });
       const { accessToken } = response.data.data;
       localStorage.setItem("accessToken", accessToken);
 
       const profileResponse = await axios.get(
-        "http://localhost:3000/v1/users/profile",
+        "http://ec2-13-239-36-171.ap-southeast-2.compute.amazonaws.com:3000/v1/users/profile",
         {
           headers: { Authorization: `Bearer ${accessToken}` },
         }

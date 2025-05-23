@@ -27,7 +27,7 @@ function App() {
     if (user.userId) {
       const token = localStorage.getItem("accessToken");
       if (token && !socket) {
-        const newSocket = io("http://localhost:3000/chat", {
+        const newSocket = io("http://ec2-13-239-36-171.ap-southeast-2.compute.amazonaws.com:3000/chat", {
           auth: { token },
           transports: ["websocket"],
         });
@@ -59,7 +59,7 @@ function App() {
       if (token) {
         try {
           const response = await axios.get(
-            "http://localhost:3000/v1/users/profile",
+            "http://ec2-13-239-36-171.ap-southeast-2.compute.amazonaws.com:3000/v1/users/profile",
             {
               headers: { Authorization: `Bearer ${token}` },
             }
